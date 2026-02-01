@@ -14,7 +14,7 @@ A Trello-like Kanban board with Todo/Doing/Done columns, drag & drop, local pers
 
 ## Features
 - Three columns (Todo, Doing, Done) with horizontal scrollable board.
-- Tasks persisted locally using Drift/SQLite; survives app restarts.
+- Tasks persisted locally using Drift/SQLite survives app restarts.
 - Create, edit, delete tasks with validation (title required, email required + format check).
 - Drag & drop tasks between columns using native `Draggable`/`DragTarget`, updating status and timestamps.
 - Undo/Redo stack for create, edit, delete, and moves (AppBar buttons).
@@ -25,7 +25,18 @@ A Trello-like Kanban board with Todo/Doing/Done columns, drag & drop, local pers
 
 ## Assumptions / Limitations
 - Simple in-memory pagination caches per column; refreshes after each mutation to keep data consistent.
-- While a search query is active, filtering is performed on already loaded tasks per column; load-more is paused until the search box is cleared.
+- While a search query is active, filtering is performed on already loaded tasks per column, load-more is paused until the search box is cleared.
 - No remote sync or authentication; purely local storage.
 - Basic email regex validation (RFC-lite).
 - Drag feedback uses card preview; long-press to start drag.
+
+## Screenshots
+
+### Kanban Board
+![Kanban Board](screenshots/board1.png)
+
+![Kanban Board](screenshots/board2.png)
+
+### Create / Edit Task
+![Task Form](screenshots/task.png)
+
