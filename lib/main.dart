@@ -13,10 +13,7 @@ Future<void> main() async {
   final db = AppDatabase();
   final repo = TaskRepository(db);
   final history = UndoRedoController();
-  runApp(KanbanApp(
-    repository: repo,
-    history: history,
-  ));
+  runApp(KanbanApp(repository: repo, history: history));
 }
 
 class KanbanApp extends StatelessWidget {
@@ -31,13 +28,12 @@ class KanbanApp extends StatelessWidget {
         Provider<TaskRepository>.value(value: repository),
         ChangeNotifierProvider<UndoRedoController>.value(value: history),
         ChangeNotifierProvider<BoardController>(
-          create: (context) => BoardController(
-            repository: repository,
-            history: history,
-          ),
+          create: (context) =>
+              BoardController(repository: repository, history: history),
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'KanBan',
         theme: ThemeData(
           useMaterial3: true,
